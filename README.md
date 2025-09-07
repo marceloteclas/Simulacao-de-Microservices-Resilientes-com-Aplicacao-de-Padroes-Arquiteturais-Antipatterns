@@ -125,6 +125,7 @@ IDE (IntelliJ, Eclipse ou VS Code) ou terminal
    ```bash
    cd versao_refatorada/pedidoService
    mvn spring-boot:run
+   ```
    ```bash
    cd versao_refatorada/PagamentoService
    mvn spring-boot:run
