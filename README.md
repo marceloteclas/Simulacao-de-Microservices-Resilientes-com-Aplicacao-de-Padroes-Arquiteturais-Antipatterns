@@ -125,6 +125,10 @@ IDE (IntelliJ, Eclipse ou VS Code) ou terminal
    ```bash
    cd versao_refatorada/pedidoService
    mvn spring-boot:run
+   ```bash
+   cd versao_refatorada/PagamentoService
+   mvn spring-boot:run
+   ```
    
    ```
      ```bash
@@ -140,7 +144,10 @@ IDE (IntelliJ, Eclipse ou VS Code) ou terminal
   2. Listar pedidos:
 👉 http://localhost:8084/pedidos
 
- 3. Consultar pedido + usuário via Gateway:
+ 3. Microservice de pagamentos:
+👉http://localhost:8086/pagamentos
+
+ 5. Consultar pedido + usuário via Gateway:
 👉 http://localhost:8085/api/pedidos/1
 
 ##⚠️ Dica: Sempre suba Usuário e Pedido antes do Gateway, senão o Gateway não vai conseguir chamar os serviços.
