@@ -1,0 +1,2 @@
+# Simulacao-de-Microservices-Resilientes-com-Aplicacao-de-Padroes-Arquiteturais-Antipatterns
+Vivenciar na prática a aplicação de padrões arquiteturais modernos em cenários de microservices. • Implementar Circuit Breaker, Bulkhead e API Gateway em um protótipo distribuído. • Avaliar violações SOLID e anti-patterns comuns em arquiteturas distribuídas. • Usar refatoração guiada e táticas de modularização para corrigir fragilidades.
