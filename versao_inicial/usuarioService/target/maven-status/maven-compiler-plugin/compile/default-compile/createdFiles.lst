@@ -1,0 +1,4 @@
+com\example\usuario\controller\HomeController.class
+com\example\usuario\model\Usuario.class
+com\example\usuario\UsuarioApplication.class
+com\example\usuario\controller\UsuarioController.class

@@ -1,0 +1,4 @@
+com\example\pedido\controller\PedidoController.class
+com\example\pedido\model\Pedido.class
+com\example\pedido\PedidoApplication.class
+com\example\pedido\controller\HomeController.class
