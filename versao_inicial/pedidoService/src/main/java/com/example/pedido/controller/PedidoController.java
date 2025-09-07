@@ -1,6 +1,8 @@
 package com.example.pedido.controller;
 
 import com.example.pedido.model.Pedido;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -35,33 +37,34 @@ public class PedidoController {
     public Map<Long, Pedido> listarPedidos() {
         return pedidos;
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getPedidoComUsuario(@PathVariable Long id) {
-        Pedido p = pedidos.get(id);
-        if (p == null)
-            return ResponseEntity.notFound().build();
-
-        // Alto acoplamento: Controller chamando diretamente outro serviço via
+// Alto acoplamento: Controller chamando diretamente outro serviço via
         // RestTemplate
         // Viola DIP (Dependency Inversion) → Controller depende de implementação
         // concreta
         // Viola SRP → Controller não deveria orquestrar integração externa
+    @GetMapping("/{id}")
+public ResponseEntity<?> getPedidoComUsuario(@PathVariable Long id) {
+    Pedido p = pedidos.get(id);
+    if (p == null)
+        return ResponseEntity.notFound().build();
 
-        // CHAMADA DIRETA ao usuario-service (alto acoplamento)
-        String usuarioUrl = "http://localhost:8081/usuarios/" + p.getUsuarioId();
-        RestTemplate rest = new RestTemplate();
+    String usuarioUrl = "http://localhost:8081/usuarios/" + p.getUsuarioId();
+    RestTemplate rest = new RestTemplate();
+    ObjectMapper mapper = new ObjectMapper();
 
-        try {
-            String usuarioJson = rest.getForObject(usuarioUrl, String.class);
-            Map<String, Object> resposta = new HashMap<>();
-            resposta.put("pedido", p);
-            resposta.put("usuario", usuarioJson);
-            return ResponseEntity.ok(resposta);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erro ao acessar usuario-service: " + e.getMessage());
-        }
+    try {
+        String usuarioJson = rest.getForObject(usuarioUrl, String.class);
+        Map<String, Object> usuarioMap = mapper.readValue(usuarioJson, Map.class);
+
+        Map<String, Object> resposta = new HashMap<>();
+        resposta.put("pedido", p);
+        resposta.put("usuario", usuarioMap);
+
+        return ResponseEntity.ok(resposta);
+    } catch (Exception e) {
+        return ResponseEntity.status(500).body("Erro ao acessar usuario-service: " + e.getMessage());
     }
+}
 
     @PostMapping
     public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido) {

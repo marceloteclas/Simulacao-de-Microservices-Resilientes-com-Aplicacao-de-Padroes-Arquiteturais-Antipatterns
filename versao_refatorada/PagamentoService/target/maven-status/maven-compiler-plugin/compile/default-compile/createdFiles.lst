@@ -1,0 +1,6 @@
+com\example\pagamento\service\PagamentoService.class
+com\example\pagamento\model\Pagamento.class
+com\example\pagamento\Pagamento.class
+com\example\pagamento\config\AppConfig.class
+com\example\pagamento\contoller\PagamentoController.class
+com\example\pagamento\controller\HomeController.class

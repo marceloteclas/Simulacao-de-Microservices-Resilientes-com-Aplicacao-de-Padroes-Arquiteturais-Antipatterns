@@ -1,0 +1,4 @@
+com\example\pagamento\controller\PagamentoController.class
+com\example\pagamento\model\Pagamento.class
+com\example\pagamento\PagamentoApplication.class
+com\example\pagamento\controller\HomeController.class
