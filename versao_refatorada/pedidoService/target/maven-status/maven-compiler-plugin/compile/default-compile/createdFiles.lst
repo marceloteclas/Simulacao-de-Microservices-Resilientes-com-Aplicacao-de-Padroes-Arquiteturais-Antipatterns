@@ -1,5 +1,5 @@
 com\example\pedido\config\AppConfig.class
 com\example\pedido\contoller\HomeController.class
+com\example\pedido\controller\PedidoController.class
 com\example\pedido\model\Pedido.class
 com\example\pedido\PedidoApplication.class
-com\example\pedido\contoller\PedidoController.class
