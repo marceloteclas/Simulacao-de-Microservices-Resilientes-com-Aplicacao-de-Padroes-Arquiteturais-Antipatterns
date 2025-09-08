@@ -68,7 +68,9 @@ versao_inicial/
 versao_refatorada/
   ├── usuarioService/
   ├── pedidoService/
+  ├── PagamentoService/
   └── gatewayService/
+
 
 
 ```
@@ -150,6 +152,15 @@ IDE (IntelliJ, Eclipse ou VS Code) ou terminal
 
  5. Consultar pedido + usuário via Gateway:
 👉 http://localhost:8085/api/pedidos/1
+
+Body para POST:
+```json
+{
+  "pedidoId": 1,
+  "valor": 49.90
+}
+
+```
 
 ##⚠️ Dica: Sempre suba Usuário e Pedido antes do Gateway, senão o Gateway não vai conseguir chamar os serviços.
 
